@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - @Config.SiteName</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <header class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Logo", "Index", "Home", null, new { @class = "navbar-brand", title = Config.SiteName })
+                @*<a class="navbar-brand" href="#">
+                        <img alt="Brand" src="http://v3.bootcss.com/favicon.ico">
+                    </a>*@
+            </div>
+            <nav class="navbar-header navbar-collapse collapse" role="navigation">
+                <ul class="nav navbar-nav">
+                    <li class="active">@Html.ActionLink("首页", "index", "home")</li>
+                    <li>@Html.ActionLink("产品中心", "index", "product")</li>
+                    <li>@Html.ActionLink("解决方案", "index", "solution")</li>
+                    <li>@Html.ActionLink("新闻资讯", "index", "news")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">服务支持<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("关于我们", "about", "home")</li>
+                            <li>@Html.ActionLink("联系我们", "contact", "home")</li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <footer class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="navbar-left">
+                <div class="footer-left">
+                    @Html.ActionLink("关于我们", "about", "home") | @Html.ActionLink("联系我们", "contact", "home") | @Html.ActionLink("信息反馈", "feedback", "home")
+                </div>
+                <div class="footer-right">
+                    <div>
+                        <p>地址 : 四川省成都市一环路西三段抚林巷3号二单元601</p>
+                        <p>电话 : 13980507624</p>
+                        <p>联系人：王生</p>
+                        <p>邮箱 : service@linkjr.cn</p>
+                        <p><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=291839797&site=linkjr&menu=yes"><img border="0" src="http://im.bizapp.qq.com:8000/zx.gif" alt="点击这里给我发消息" title="点击这里给我发消息" /></a>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-right">
+                Copyright &copy; @DateTime.Now.Year Link.jr All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery", "~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

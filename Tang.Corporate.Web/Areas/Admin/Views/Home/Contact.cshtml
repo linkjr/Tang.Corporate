@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "联系我们";
+}
+<div>
+    @Html.ActionLink("首页", "index") | @ViewBag.Title
+    @using (Ajax.BeginForm(new AjaxOptions { OnSuccess = "success" }))
+    {
+        <table class="admintable01" cellpadding="0" cellspacing="0">
+            <tr>
+                <th colspan="2">@ViewBag.Title</th>
+            </tr>
+            <tr>
+                <td width="100px">编辑内容</td>
+                <td>
+                    @Html.AntiForgeryToken()
+                    @*@Html.HiddenFor(m => m.ID)
+                    @Html.HiddenFor(m => m.Title)*@
+                    @Html.TextArea("Content")
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" value="修 改" class="input-button" />
+                <td>
+            </tr>
+        </table>
+    }
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryuno")
+    @Scripts.Render("~/bundles/kindeditor")
+    <script type="text/javascript">
+        KindEditor.ready(function (K) {
+            window.editor = K.create('#Content',
+                {
+                    width: "800px",
+                    height: "500px"
+                });
+        });
+
+        var success = function (data) {
+            if (data != null) {
+                if (data.result) {
+                    common.Success(data.msg)
+                    return false;
+                } else {
+                    common.Error(data.msg)
+                }
+            }
+        }
+    </script>
+}

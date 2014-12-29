@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 后台管理 - @Config.SiteName</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @Html.Partial("_HeaderPartial")
+
+    <div class="container-fluid">
+        <div class='row'>
+            <div class='navbar-default col-lg-2 col-md-3 col-sm-3 col-xs-5'>
+                <ul id="menu" class="nav nav-pills nav-stacked">
+                    <li class="panel">
+                        <a href="javascript:;">
+                            <span class="glyphicon glyphicon-home"></span>
+                            <span>管理首页</span>
+                        </a>
+                    </li>
+                    <li class="panel active">
+                        <a data-toggle="collapse" data-parent="#menu" data-target="#1" href="javascript:;">
+                            <span class="glyphicon glyphicon-cog"></span>
+                            <span>系统设置</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="nav collapse in" id="1">
+                            <li><a href="#">系统设置</a></li>
+                            <li class="active"><a href="#">系统设置</a></li>
+                            <li><a href="#">系统设置</a></li>
+                        </ul>
+                    </li>
+                    <li class="panel">
+                        <a data-toggle="collapse" data-parent="#menu" href='#2'>
+                            <span>部门管理</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="collapse nav" id="2">
+                            <li>@Html.ActionLink("员工管理", "index", "home", null, new { title = "员工管理", style = "glyphicon glyphicon-subtitles" })</li>
+                        </ul>
+                    </li>
+                    <li class="panel">
+                        <a href='#'>Another Link 3</a>
+                    </li>
+                </ul>
+            </div>
+            <div class='col-lg-10 col-md-9 col-sm-9 col-xs-7'>
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

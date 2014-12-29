@@ -1,0 +1,114 @@
+﻿.form{
+    margin: auto;
+    width: 400px;
+    height: 500px;
+    background-color: #fff;
+}
+
+.row {
+    clear: both;
+    padding: 5px 5px 25px 5px;
+    overflow: hidden;
+}
+
+    .row > label {
+        float: left;
+        margin-right: 20px;
+        width: 213px;
+        line-height: 31px;
+        text-align: right;
+        height: 31px;
+    }
+
+    .row .el {
+        float: left;
+        position: relative;
+    }
+
+        .row .el label {
+            width: auto;
+        }
+
+.el .input-mail, .input-pwd, .input-phone {
+    padding-left: 30px;
+}
+
+.el .input-mail {
+    background-image: url(../images/i-14.png);
+    background-repeat: no-repeat;
+    background-position: 9px 9px;
+}
+
+.el .input-pwd {
+    background-image: url(../images/i-12.png);
+    background-repeat: no-repeat;
+    background-position: 9px 9px;
+}
+
+.el .input-phone {
+    background-image: url(../images/i-15.png);
+    background-repeat: no-repeat;
+    background-position: 9px 9px;
+}
+
+.el .tips {
+    position: absolute;
+    bottom: -32px;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #A9A9A9;
+}
+
+.tips-wrong {
+    float: left;
+    margin: 2px 0 0 10px;
+    padding: 0 10px 0 13px;
+    min-width: 97px;
+    line-height: 28px;
+    color: #EB0000;
+    white-space: nowrap;
+    _width: 97px;
+    background: url(../images/all_bg.png) no-repeat 0 -236px;
+}
+
+    .tips-wrong em {
+        display: inline-block;
+        padding-left: 23px;
+        height: 28px;
+        white-space: nowrap;
+        font-size: 12px;
+        background: url(../images/ico_bg.png) no-repeat -3px -126px;
+    }
+
+.tips_ok {
+    display: inline-block;
+    margin: 7px 0 0 14px;
+    width: 16px;
+    height: 16px;
+    font-size: 12px;
+    background: url(../images/ico_bg.png) no-repeat -3px -68px;
+}
+
+.ext {
+    clear: both;
+    overflow: hidden;
+    margin: 8px 12px;
+    width: 300px;
+    font-size: 12px;
+    color: #000;
+    _zoom: 1;
+}
+
+.agreement {
+    padding-left: 230px;
+    width: auto;
+}
+
+    .agreement a {
+        color: #0092D2;
+    }
+
+
+.row .submit {
+    text-align: center;
+}

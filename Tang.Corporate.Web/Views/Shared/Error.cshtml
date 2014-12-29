@@ -1,0 +1,11 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "错误";
+    var errorInfo = ViewData.Model;
+}
+
+<h1 class="text-danger">错误。</h1>
+<h2 class="text-danger">处理你的请求时出错。</h2>
+
+@Html.Raw(errorInfo.Exception.Message)

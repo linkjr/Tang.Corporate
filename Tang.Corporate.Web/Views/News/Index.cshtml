@@ -1,0 +1,38 @@
+﻿@model PagedList<NewsDataObject>
+@{
+    ViewBag.Title = "新闻资讯";
+}
+
+<h2 style="border-bottom:1px solid #ddd;height:40px;">@ViewBag.Title</h2>
+
+<div>
+    <div>
+        @if (Model == null || Model.Count == 0)
+        {
+            <div>暂无相关数据</div>
+        }
+        else
+        {
+            <div>
+                @foreach (var item in Model)
+                {
+                    if (!string.IsNullOrEmpty(item.CoverImg))
+                    {
+                        <div style="float:left"><img src="@item.CoverImg"></div>
+                    }
+                    <div>@item.Title</div>
+                    <div>@item.CreateDate</div>
+                    <div>@Html.ActionLink("阅读全文", "details", "news", new { id = item.ID }, null)</div>
+                }
+            </div>
+            <div class="TurnPage">
+                @Html.Pager(Model,
+                new PagerOptions
+                {
+                    PageIndexParameterName = "id",
+                    CurrentPagerItemWrapperFormatString = "<a class=\"TurnSelect\">{0}</a>"
+                })
+            </div>
+        }
+    </div>
+</div>

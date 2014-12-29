@@ -1,0 +1,10 @@
+﻿.page
+{
+    list-style: none;
+}
+
+    .page .number
+    {
+        height: 50px;
+        line-height: 50px;
+    }
