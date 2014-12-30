@@ -32,10 +32,11 @@ namespace Tang.Corporate.Application
             if (string.IsNullOrEmpty(dataObject.Password))
                 throw new ValidationException("登录密码为空。");
 
-            //var ar = this._repository.FindAll().FirstOrDefault(m => m.Account == dataObject.Account);
-            //ar.Login(dataObject.Account, dataObject.Password);
-            var ar = this.FindByAccount(dataObject.Account);
-            return ar;
+            var ar = this._repository.FindAll().FirstOrDefault(m => m.Account == dataObject.Account);
+            ar.Login(dataObject.Account, dataObject.Password);
+
+            var model = this.FindByAccount(dataObject.Account);
+            return model;
         }
 
 

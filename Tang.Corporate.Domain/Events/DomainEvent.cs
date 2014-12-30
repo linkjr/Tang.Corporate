@@ -14,10 +14,11 @@ namespace Tang.Corporate.Domain.Events
         public static void Publish<TDomainEvent>(TDomainEvent evnt)
             where TDomainEvent : class, IDomainEvent
         {
-            var handlers = ServiceLocator.Instance.ResolveAll<IDomainEventHandler<TDomainEvent>>();
+            var handlers = ServiceLocator.Instance.ResolveAll<Tang.Corporate.Domain.Repositories.IRepository<IAggregateRoot>>();
+            //var handlers = ServiceLocator.Instance.ResolveAll<IDomainEventHandler<TDomainEvent>>();
             foreach (var handler in handlers)
             {
-                handler.Handle(evnt);
+                //handler.Handle(evnt);
             }
         }
     }
