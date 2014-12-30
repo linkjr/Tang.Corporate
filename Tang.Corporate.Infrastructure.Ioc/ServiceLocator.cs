@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.Configuration;
 using Microsoft.Practices.Unity.InterceptionExtension;
 
 namespace Tang.Corporate.Infrastructure.Ioc
@@ -11,13 +13,16 @@ namespace Tang.Corporate.Infrastructure.Ioc
     public class ServiceLocator : IServiceProvider
     {
         //private static readonly object obj = new object();
-        private static readonly ServiceLocator instance = new ServiceLocator();
-        private readonly IUnityContainer container;
+        private static IUnityContainer container;
+        private static readonly ServiceLocator instance = new ServiceLocator(container);
 
-        public ServiceLocator()
+        public ServiceLocator(IUnityContainer container)
         {
-            this.container = new UnityContainer()
-                .AddNewExtension<Interception>();
+            ServiceLocator.container = container;
+            var section = (UnityConfigurationSection)ConfigurationManager.GetSection("unity");
+            container = new UnityContainer();
+            section.Configure(container);
+            //.AddNewExtension<Interception>();
         }
 
         /// <summary>
@@ -30,14 +35,14 @@ namespace Tang.Corporate.Infrastructure.Ioc
 
         public T Resolve<T>()
         {
-            return this.container.Resolve<T>();
+            return container.Resolve<T>();
         }
 
         public IEnumerable<T> ResolveAll<T>()
         {
             try
             {
-                return this.container.ResolveAll<T>();
+                return container.ResolveAll<T>();
             }
             catch
             {
@@ -47,7 +52,7 @@ namespace Tang.Corporate.Infrastructure.Ioc
 
         public object GetService(Type serviceType)
         {
-            return this.container.Resolve(serviceType);
+            return container.Resolve(serviceType);
         }
     }
 }

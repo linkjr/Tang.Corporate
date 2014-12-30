@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using Microsoft.Practices.Unity;
 
+using Tang.Corporate.Infrastructure.Ioc;
+
 namespace Tang.Corporate.Ioc
 {
     public class UnityDependencyResolver : IDependencyResolver
