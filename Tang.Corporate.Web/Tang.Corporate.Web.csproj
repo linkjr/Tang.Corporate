@@ -499,6 +499,10 @@
       <Project>{1ca19448-e929-4d88-9539-def644fa2008}</Project>
       <Name>Tang.Corporate.IApplication</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Tang.Corporate.Infrastructure.Ioc\Tang.Corporate.Infrastructure.Ioc.csproj">
+      <Project>{ca630bb3-60c8-4cc8-8a75-c7612e772b64}</Project>
+      <Name>Tang.Corporate.Infrastructure.Ioc</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tang.Corporate.Infrastructure.Mvc\Tang.Corporate.Infrastructure.Mvc.csproj">
       <Project>{5783ef5b-a1a6-4dd5-9b9f-a791464b1baa}</Project>
       <Name>Tang.Corporate.Infrastructure.Mvc</Name>
