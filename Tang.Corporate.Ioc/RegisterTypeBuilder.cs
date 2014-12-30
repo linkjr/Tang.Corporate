@@ -8,6 +8,7 @@ using Microsoft.Practices.Unity;
 
 using Tang.Corporate.Domain.Repositories;
 using Tang.Corporate.IApplication;
+using Tang.Corporate.Infrastructure.Ioc;
 
 namespace Tang.Corporate.Ioc
 {

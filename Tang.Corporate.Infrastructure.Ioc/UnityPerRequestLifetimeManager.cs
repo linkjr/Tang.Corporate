@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 using System.Web;
 using Microsoft.Practices.Unity;
 
-namespace Tang.Corporate.Ioc
+namespace Tang.Corporate.Infrastructure.Ioc
 {
     public class UnityPerRequestLifetimeManager : LifetimeManager
     {
-        private string key = Guid.NewGuid().ToString();
+        private readonly string key = Guid.NewGuid().ToString();
 
         public UnityPerRequestLifetimeManager()
         { }

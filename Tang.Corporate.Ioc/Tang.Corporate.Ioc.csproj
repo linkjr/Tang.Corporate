@@ -34,10 +34,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.Unity.Configuration">
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -54,7 +56,6 @@
     <Compile Include="RegisterTypeBuilder.cs" />
     <Compile Include="UnityControllerFactory.cs" />
     <Compile Include="UnityDependencyResolver.cs" />
-    <Compile Include="UnityPerRequestLifetimeManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,6 +66,10 @@
     <ProjectReference Include="..\Tang.Corporate.IApplication\Tang.Corporate.IApplication.csproj">
       <Project>{1ca19448-e929-4d88-9539-def644fa2008}</Project>
       <Name>Tang.Corporate.IApplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tang.Corporate.Infrastructure.Ioc\Tang.Corporate.Infrastructure.Ioc.csproj">
+      <Project>{ca630bb3-60c8-4cc8-8a75-c7612e772b64}</Project>
+      <Name>Tang.Corporate.Infrastructure.Ioc</Name>
     </ProjectReference>
     <ProjectReference Include="..\Tang.Corporate.Infrastructure\Tang.Corporate.Infrastructure.csproj">
       <Project>{c25e36b7-b301-4cf5-9d31-3d97468237ee}</Project>
