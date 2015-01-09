@@ -14,7 +14,7 @@ namespace Tang.Corporate.Application
     /// </summary>
     public abstract class ApplicationService : IApplicationService
     {
-        private readonly IRepositoryContext _context;
+        private readonly IRepositoryContext context;
 
         /// <summary>
         /// 初始化 <c>ApplicationService</c> 类的新实例。
@@ -22,7 +22,7 @@ namespace Tang.Corporate.Application
         /// <param name="context"></param>
         public ApplicationService(IRepositoryContext context)
         {
-            this._context = context;
+            this.context = context;
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace Tang.Corporate.Application
         /// </summary>
         protected IRepositoryContext Context
         {
-            get { return _context; }
+            get { return this.context; }
         }
     }
 }

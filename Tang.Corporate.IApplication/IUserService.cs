@@ -16,7 +16,7 @@ namespace Tang.Corporate.IApplication
     public interface IUserService : IApplicationService
     {
         [OperationContract]
-        UserDataObject Login(UserLoginDataObject dataObject);
+        void Login(UserLoginDataObject dataObject);
 
         [OperationContract]
         UserDataObject FindByAccount(string account);

@@ -39,20 +39,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventHandlers\UserLoggedLogEventHandler.cs" />
     <Compile Include="Events\DomainEvent.cs" />
     <Compile Include="Events\IDomainEvent.cs" />
     <Compile Include="Events\IEvent.cs" />
     <Compile Include="Events\UserLoggedEvent.cs" />
-    <Compile Include="Handlers\IDomainEventHandler.cs" />
-    <Compile Include="Handlers\IEventHandler.cs" />
-    <Compile Include="Handlers\UserLoggedEventHandler.cs" />
+    <Compile Include="EventHandlers\IDomainEventHandler.cs" />
+    <Compile Include="EventHandlers\IEventHandler.cs" />
+    <Compile Include="EventHandlers\UserLoggedEventHandler.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="IAggregateRoot.cs" />
+    <Compile Include="Models\AccountLog.cs" />
     <Compile Include="Models\AggregateRoot.cs" />
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IAccountLogRepository.cs" />
     <Compile Include="Repositories\INewsRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\IRepositoryContext.cs" />

@@ -47,9 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="EntityFramework\AccountLogRepository.cs" />
     <Compile Include="EntityFramework\CorporateDbContext.cs" />
     <Compile Include="EntityFramework\EntityFrameworkRepository.cs" />
     <Compile Include="EntityFramework\EntityFrameworkRepositoryContext.cs" />
+    <Compile Include="EntityFramework\EntityTypeConfigurations\AccountLogEntityTypeConfiguration.cs" />
     <Compile Include="EntityFramework\EntityTypeConfigurations\NewsEntityTypeConfiguration.cs" />
     <Compile Include="EntityFramework\EntityTypeConfigurations\UserEntityTypeConfiguration.cs" />
     <Compile Include="EntityFramework\IEntityFrameworkRepositoryContext.cs" />
