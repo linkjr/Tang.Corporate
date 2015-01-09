@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
+using Tang.Corporate.Infrastructure.Ioc;
 using Tang.Corporate.Ioc;
 using Tang.Corporate.Web.Controllers;
 
@@ -20,7 +21,9 @@ namespace Tang.Corporate.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            DependencyResolver.SetResolver(new UnityDependencyResolver(RegisterTypeBuilder.GetContainer()));
+            RegisterTypeBuilder.Initialize();
+            DependencyResolver.SetResolver(new UnityDependencyResolver(ServiceLocator.Instance.Container));
+            //GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(EngineContext.Current.ContainerManager.Container.Container as UnityContainer);
         }
 
         protected void Application_Error(object sender, EventArgs e)
