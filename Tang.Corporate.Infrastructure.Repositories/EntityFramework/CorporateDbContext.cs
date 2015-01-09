@@ -27,6 +27,8 @@ namespace Tang.Corporate.Infrastructure.Repositories.EntityFramework
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new UserEntityTypeConfiguration());
+            modelBuilder.Configurations.Add(new AccountLogEntityTypeConfiguration());
+
             modelBuilder.Configurations.Add(new NewsEntityTypeConfiguration());
 
             base.OnModelCreating(modelBuilder);
