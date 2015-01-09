@@ -13,17 +13,17 @@ namespace Tang.Corporate.Application
 {
     public class UserService : ApplicationService, IUserService
     {
-        private IUserRepository _repository;
+        private IUserRepository repository;
 
         public UserService(IRepositoryContext context,
             IUserRepository repository)
             : base(context)
         {
-            this._repository = repository;
+            this.repository = repository;
         }
 
 
-        public UserDataObject Login(UserLoginDataObject dataObject)
+        public void Login(UserLoginDataObject dataObject)
         {
             if (dataObject == null)
                 throw new ValidationException("dataObject为空。");
@@ -32,17 +32,16 @@ namespace Tang.Corporate.Application
             if (string.IsNullOrEmpty(dataObject.Password))
                 throw new ValidationException("登录密码为空。");
 
-            var ar = this._repository.FindAll().FirstOrDefault(m => m.Account == dataObject.Account);
+            var ar = this.repository.FindAll().FirstOrDefault(m => m.Account == dataObject.Account);
             ar.Login(dataObject.Account, dataObject.Password);
-
-            var model = this.FindByAccount(dataObject.Account);
-            return model;
+            this.repository.Modify(ar);
+            base.Context.Commit();
         }
 
 
         public UserDataObject FindByAccount(string account)
         {
-            var list = from m in this._repository.FindAll()
+            var list = from m in this.repository.FindAll()
                        orderby m.CreateDate descending
                        select new UserDataObject
                        {

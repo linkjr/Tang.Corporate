@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Tang.Corporate.Domain.Events;
+using Tang.Corporate.Infrastructure.Exceptions;
 
 namespace Tang.Corporate.Domain.Models
 {
@@ -40,7 +41,21 @@ namespace Tang.Corporate.Domain.Models
 
         public void Login(string account, string password)
         {
-            DomainEvent.Publish<UserLoggedEvent>(new UserLoggedEvent { Account = account, Password = password });
+            if (this.Account == account && this.Password == password)
+            {
+                this.LoginCount += 1;
+                this.LastLoginDate = DateTime.Now;
+
+                DomainEvent.Publish<UserLoggedEvent>(new UserLoggedEvent(this)
+                {
+                    Account = account,
+                    Password = password
+                });
+            }
+            else
+            {
+                throw new ValidationException("用户名或者密码错误。");
+            }
         }
     }
 }
