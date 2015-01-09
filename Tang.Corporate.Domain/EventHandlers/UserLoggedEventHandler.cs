@@ -19,9 +19,6 @@ namespace Tang.Corporate.Domain.EventHandlers
         public void Handle(UserLoggedEvent evnt)
         {
             //var entity = evnt.Source as User;
-            //if (entity.Account == evnt.Account && entity.Password == evnt.Password)
-            //{
-            //}
         }
     }
 }
