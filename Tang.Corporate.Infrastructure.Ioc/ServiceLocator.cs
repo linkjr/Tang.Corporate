@@ -14,14 +14,19 @@ namespace Tang.Corporate.Infrastructure.Ioc
     {
         //private static readonly object obj = new object();
         private static IUnityContainer container;
-        private static readonly ServiceLocator instance = new ServiceLocator(container);
+        private static readonly ServiceLocator instance = new ServiceLocator();
 
-        public ServiceLocator(IUnityContainer container)
+        public IUnityContainer Container
         {
-            ServiceLocator.container = container;
-            var section = (UnityConfigurationSection)ConfigurationManager.GetSection("unity");
+            get { return container; }
+        }
+
+        public ServiceLocator()
+        {
             container = new UnityContainer();
+            var section = (UnityConfigurationSection)ConfigurationManager.GetSection("unity");
             section.Configure(container);
+
             //.AddNewExtension<Interception>();
         }
 

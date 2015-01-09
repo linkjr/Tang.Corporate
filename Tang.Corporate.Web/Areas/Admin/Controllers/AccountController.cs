@@ -39,25 +39,17 @@ namespace Tang.Corporate.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var ar = this._userService.Login(dataObject);
-                if (ar == null)
-                {
-                    if (Request.IsAjaxRequest())
-                        return Json(new { result = ar != null, msg = "账号不存在或者登录失败" });
-                }
+                this._userService.Login(dataObject);
+                FormsAuthentication.SetAuthCookie(dataObject.Account, true);
+
+                if (Request.IsAjaxRequest())
+                    return Json(new { result = true, msg = "登录成功。", url = returnUrl ?? FormsAuthentication.DefaultUrl });
                 else
                 {
-                    FormsAuthentication.SetAuthCookie(ar.Account.ToString(), true);
-
-                    if (Request.IsAjaxRequest())
-                        return Json(new { result = ar != null, msg = "登录成功。", url = returnUrl ?? FormsAuthentication.DefaultUrl });
+                    if (string.IsNullOrEmpty(FormsAuthentication.DefaultUrl))
+                        return RedirectToAction("index", "home");
                     else
-                    {
-                        if (string.IsNullOrEmpty(FormsAuthentication.DefaultUrl))
-                            return RedirectToAction("index", "home");
-                        else
-                            return Redirect(FormsAuthentication.DefaultUrl);
-                    }
+                        return Redirect(FormsAuthentication.DefaultUrl);
                 }
             }
             return View(dataObject);
